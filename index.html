@@ -48,13 +48,11 @@
             display: inline-block;
             animation: slide 3s infinite alternate ease-in-out;
         }
-
         @keyframes slide {
             0% { transform: translateX(-20px); }
             50% { transform: translateX(20px); }
             100% { transform: translateX(-20px); }
         }
-
         .button-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -148,8 +146,21 @@
             </a>
         </div>
     </div>
+
     <script>
-        function showKeyInput() { document.getElementById("keyInput").style.display = "block"; }
+        function showKeyInput() { 
+            document.getElementById("keyInput").style.display = "block"; 
+        }
+
+        function checkKey() {
+            var enteredKey = document.getElementById("vipKey").value;
+            if (enteredKey === "01111") {
+                window.location.href = "mailto:support@example.com?subject=VIP Number Band&body=مرحبا ، لقد تعرضت لحادث مؤسف أن شخصًا ما سرق هاتفي المحمول لذا لم يعد بإمكاني استخدام حساب WhatsApp الخاص بي. الرجاء إلغاء تنشيط حسابي لأنه لم يعد مستخدمًا ، شكرًا لك. رقمي هو +94 ()";
+            } else {
+                alert("🚫 Invalid VIP Key! Please try again.");
+            }
+        }
+
         function sendPaidKey() {
             window.open("https://wa.me/94776938009?text=PAID FOR MY KEY", "_blank");
         }
