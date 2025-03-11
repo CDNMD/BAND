@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOOL</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --neon-blue: #00f3ff;
+            --neon-pink: #ff00ff;
+            --cyber-black: #0a0a1a;
+            --cyber-gray: #1a1a2e;
+            --green-btn: #00ff00;
+            --purple-btn: #800080;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', sans-serif;
+        }
+        body {
+            background: var(--cyber-black);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-y: auto;
+        }
+        .main-container {
+            background: rgba(16, 18, 27, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem;
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 50px rgba(0, 243, 255, 0.2);
+            max-width: 800px;
+            width: 90%;
+            text-align: center;
+        }
+        .cyber-header h1 {
+            color: var(--neon-blue);
+            font-size: 2rem;
+            text-shadow: 0 0 30px var(--neon-blue);
+            display: inline-block;
+            animation: slide 3s infinite alternate ease-in-out;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(-20px); }
+            50% { transform: translateX(20px); }
+            100% { transform: translateX(-20px); }
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .cyber-btn {
+            padding: 1rem;
+            background: var(--cyber-gray);
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.4s;
+        }
+        .cyber-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px var(--neon-pink);
+        }
+        .vip-btn { background: darkblue; }
+        .otp-lock { background: var(--purple-btn); }
+        .green-btn { background: var(--green-btn); }
+        .cyber-footer {
+            margin-top: 2rem;
+            color: var(--neon-blue);
+            text-align: center;
+            font-size: 1rem;
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+        /* KEY INPUT EFFECT */
+        .key-input {
+            display: none;
+            margin-top: 1rem;
+            text-align: center;
+        }
+        .key-input input {
+            padding: 10px;
+            font-size: 1rem;
+            border: 2px solid var(--neon-pink);
+            outline: none;
+            background: black;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            animation: glow 1s infinite alternate;
+        }
+        @keyframes glow {
+            from { box-shadow: 0 0 10px var(--neon-pink); }
+            to { box-shadow: 0 0 20px var(--neon-blue); }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <header class="cyber-header">
+            <h1><i class="fas fa-user-shield"></i> VIP TOOL</h1>
+        </header>
+
+        <div class="button-grid">
+            <a href="mailto:support@example.com?subject=Hate Speech&body=Esse número vem fazendo discurso ao ódio e divulgado conteúdo de porno infantil Numero: +62xnxx" class="cyber-btn">
+                <i class="fas fa-ban"></i> Number Band 1
+            </a>
+            <a href="mailto:support@example.com?subject=Third-Party WhatsApp&body=UM DE SEUS USUÁRIOS, ESTA USANDO O APK DO WHATSAPP FEITO POR TERCEIROS E ESTA INDO CONTRA OS TERMOS DE SERVIÇO PEÇO QUE ANALISEM ESSE USUÁRIO ( +62 )" class="cyber-btn">
+                <i class="fas fa-ban"></i> Number Band 2
+            </a>
+            <a href="mailto:support@example.com?subject=Lost Phone&body=Olá, por favor desative este número, pois perdi meu celular e alguém está usando meu número, por favor desative meu número: [+62xxxxxx]" class="cyber-btn">
+                <i class="fas fa-ban"></i> Number Band 3
+            </a>
+            <a href="mailto:support@example.com?subject=Stolen Account&body=Hi whatsapp support team, I have lost my phone and I ask you to close my account so that the thief does not violate the terms of your policy. Thank you support team+92323" class="cyber-btn">
+                <i class="fas fa-ban"></i> Number Band 4
+            </a>
+            <a href="mailto:support@example.com?subject=OTP Lock&body=Por favor, pesquise o código OTP para este número porque outra pessoa acidentalmente se conectou com meu número e eu tive que esperar 8 horas, por favor, pesquise novamente neste número: [+62xxxxx]" class="cyber-btn otp-lock">
+                <i class="fas fa-lock"></i> OTP LOCK
+            </a>
+
+            <a href="javascript:void(0)" onclick="showKeyInput()" class="cyber-btn vip-btn">
+                <i class="fas fa-key"></i> NUMBER BAND VIP
+            </a>
+
+            <div class="key-input" id="keyInput">
+                <input type="password" id="vipKey" placeholder="Enter VIP Key">
+                <button onclick="checkKey()" class="cyber-btn"><i class="fas fa-check"></i> Submit</button>
+            </div>
+
+            <a href="javascript:void(0)" onclick="sendPaidKey()" class="cyber-btn green-btn">
+                <i class="fab fa-whatsapp"></i> GET YOUR KEY
+            </a>
+        </div>
+    </div>
+    <script>
+        function showKeyInput() { document.getElementById("keyInput").style.display = "block"; }
+        function sendPaidKey() {
+            window.open("https://wa.me/94776938009?text=PAID FOR MY KEY", "_blank");
+        }
+    </script>
+</body>
+</html>
